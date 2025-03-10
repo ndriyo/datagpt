@@ -36,6 +36,7 @@ class DatabaseService:
         conn = None
         try:
             logger.info("Establishing database connection")
+            logger.info(f"Connection string: {Config.CONN_STR}")
             conn = pyodbc.connect(Config.CONN_STR)
             yield conn
             logger.info("Database operation completed successfully")
