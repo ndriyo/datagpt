@@ -69,8 +69,8 @@ async def translate_sql(query_input: QueryInput, request: Request):
     
     try:
         # Validasi input
-        if not query_input.context.strip():
-            error_msg = "Context tidak boleh kosong"
+        if not query_input.question.strip():
+            error_msg = "Question tidak boleh kosong"
             logger.warning(f"Request {request_id}: {error_msg}")
             raise HTTPException(status_code=400, detail=error_msg)
         
@@ -83,7 +83,7 @@ async def translate_sql(query_input: QueryInput, request: Request):
         
         # Terjemahkan ke SQL
         try:
-            sql_query = LLMService.translate_to_sql(query_input.context, ddl, "SQL Server", 
+            sql_query = LLMService.translate_to_sql(query_input.question, ddl, "SQL Server", 
                     "Khusus untuk parameter hari dalam bahasa inggris, selain itu SEMUA parameter lain HARUS dalam bahasa Indonesia. \
                     Selalu gunakan hospital_id = 1 dan location_id = 2. Untuk spesialisasi, JANGAN masukkan kata dokter. ")
         except Exception as e:

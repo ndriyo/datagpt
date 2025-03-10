@@ -7,7 +7,7 @@ from typing import Dict, List, Any, Optional
 
 class QueryInput(BaseModel):
     """Model input untuk API SQL Translator"""
-    context: str = Field(..., 
+    question: str = Field(..., 
                          description="Konteks atau pertanyaan dalam bahasa natural yang ingin diterjemahkan ke SQL")
 
 
