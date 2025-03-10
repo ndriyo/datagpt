@@ -14,7 +14,7 @@ CREATE TABLE [dbo].[Doctor_Schedule_Changes] (
     [last_updated_by] nvarchar(100) NULL,
     [last_updated_date] datetime NULL
 );
-
+ 
 
 CREATE TABLE [dbo].[Doctor_Schedules] (
     [schedule_id] int NOT NULL,
