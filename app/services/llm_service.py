@@ -74,8 +74,7 @@ Hanya berikan SQL query sebagai output, tanpa penjelasan atau komentar tambahan 
             response = openai.ChatCompletion.create(**request_params)
             sql_query = response.choices[0].message.content.strip()
             
-            logger.info("SQL query generated successfully")
-            logger.debug(f"Generated SQL query: {sql_query}")
+            logger.info(f"Generated SQL query: {sql_query}")
             
             return sql_query
         except Exception as e:
